@@ -90,6 +90,40 @@
       color:#fff; min-height:60px; transition:opacity .25s ease; opacity:0;
     }
     .info-global.show{ opacity:1; }
+
+    @media (max-width: 768px) {
+      .top-bar { height: 40px; }
+      .menu-wrapper { gap: 20px; }
+      .menu-left, .menu-right { gap: 10px; }
+      .logo-center { height: 40px; }
+
+      :root {
+        --card-size: 220px;
+      }
+      .ring {
+        width: 350px;
+        height: 350px;
+      }
+      .icon {
+        width: 48px;
+        height: 48px;
+        font-size: 16px;
+      }
+      .icon.pos-top      { top: -20px; left: calc(50% - 24px); }
+      .icon.pos-right1   { top: 20px; right: -40px; }
+      .icon.pos-right2   { bottom: 20px; right: -40px; }
+      .icon.pos-left1    { top: 20px; left: -40px; }
+      .icon.pos-left2    { bottom: 20px; left: -40px; }
+      .icon.pos-bottom   { bottom: -20px; left: calc(50% - 24px); }
+
+      .info-global {
+        font-size: 0.9rem;
+        padding: 0 10px;
+      }
+      .stage {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
