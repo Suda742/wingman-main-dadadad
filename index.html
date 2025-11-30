@@ -269,8 +269,12 @@
   #watch-btn {
     font-size: 1rem;
     padding: 10px 18px;
+    position: relative;
     top: auto;
-    bottom: 15%;
+    bottom: auto;
+    margin-top: 10px;
+    left: auto;
+    transform: none;
   }
 
   /* Top navigation bar */
@@ -304,30 +308,6 @@
     padding: 0 1rem;
   }
 }
-.mobile-message {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
-  padding: 20px;
-}
-
-@media (max-width: 768px) {
-  body > *:not(.mobile-message) {
-    display: none !important;
-  }
-  .mobile-message {
-    display: block;
-  }
-  body {
-    background: black;
-  }
-}
 
   </style>
 </head>
@@ -335,9 +315,6 @@
   <div class="long-bg">
     <img src="/images/bg.png" alt="Background Image" />
   </div>
-  <div class="mobile-message">
-  <p>📱 Mobile version is under development.<br> Please visit us from desktop.</p>
-</div>
 
   <div class="card">
     <div class="card-inner" id="card">
@@ -438,7 +415,11 @@
         }
       }
       let moveX, rotateY, rotateX, translateZ;
-      const amplitude = window.innerWidth < 1440 ? 600 : 900;
+      // Calculate max amplitude for mobile to keep card roughly in view
+      // Card visual width is ~224px (280 * 0.8). Half is 112px.
+      // We want some margin.
+      const mobileAmplitude = Math.max(0, (window.innerWidth / 2) - 130);
+      const amplitude = window.innerWidth < 768 ? mobileAmplitude : (window.innerWidth < 1440 ? 600 : 900);
       if (inFreezeZone) {
         const moveX_frozen = Math.sin(freezeProgress * Math.PI * 4) * amplitude;
         const rotateY_frozen = freezeProgress * 1000;

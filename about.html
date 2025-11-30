@@ -12,6 +12,7 @@
       overflow: hidden;
       font-family: Arial, sans-serif;
       color: white;
+      background-color: black;
     }
 
     .about-container {
@@ -116,6 +117,38 @@
       font-size: 1.2rem;
       font-weight: bold;
       z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .top-bar { height: 40px; }
+      .menu-wrapper { gap: 20px; }
+      .menu-left, .menu-right { gap: 10px; }
+      .logo-center { height: 40px; }
+
+      .title {
+        font-size: 1.8rem;
+        margin-top: 60px; /* Offset for top bar */
+      }
+      .description {
+        font-size: 1rem;
+        padding: 0 20px;
+        line-height: 1.4;
+      }
+      /* Allow scrolling if content is tall */
+      html, body {
+        overflow-y: auto;
+      }
+      .about-container {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 60px; /* Space for bottom content */
+      }
+      .partners {
+        position: relative;
+        bottom: auto;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
     }
   </style>
 </head>
